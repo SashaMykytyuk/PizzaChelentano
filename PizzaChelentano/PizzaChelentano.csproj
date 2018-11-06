@@ -162,6 +162,16 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="images\layout\128-big-IMG_3474.jpg" />
+    <Content Include="images\layout\body.jpg" />
+    <Content Include="images\layout\header.jpg" />
+    <Content Include="images\layout\head_icons.png" />
+    <Content Include="images\layout\logo_celentano.png" />
+    <Content Include="images\layout\menu_nav.png" />
+    <Content Include="images\layout\paper.jpg" />
+    <Content Include="images\layout\paper_after.png" />
+    <Content Include="images\layout\paper_before.jpg" />
+    <Content Include="images\layout\paper_home_after.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
