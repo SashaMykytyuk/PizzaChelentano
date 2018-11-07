@@ -7,13 +7,26 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body style="background-image:  url('../../images/layout/body.jpg')">
-<div class="container" style=" background-image: url('../../images/layout/paper.jpg')">
-
-    <div class="row">
-        <img src="~/images/layout/logo_celentano.png"/>
+<body>
+    <div class="container logo">
+        <div class="row">
+            <div class="col-1">
+                <img src="~/images/layout/logo_celentano.png" />
+            </div> 
+            <div class="col-1 offset-2 head_info">
+                <div>
+                    <img src="~/images/layout/head_info_ua.png" />
+                </div>
+            </div>
+            <div class="col-3 head_phone">
+                (0362) 45-00-47
+            </div>
+            <div class="col-1 ">
+                <img src="~/images/layout/head_icons.png" />
+            </div>
+        </div>
     </div>
-    <div class="row">
+    <div class="container menu" >
         <div class="navbar navbar-expand-md navbar-dark bg-dark">
             <div class="container">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,14 +34,14 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-                        <li class="btn btn-dark">@Html.ActionLink("Піца", "Index", "Home", null, new {@class = "nav-link"})</li>
-                        <li class="btn btn-dark">@Html.ActionLink("Млинці", "Index", "Home", null, new {@class = "nav-link"})</li>
-                        <li class="btn btn-dark">@Html.ActionLink("Кальцоне", "Index", "Home", null, new {@class = "nav-link"})</li>
-                        <li class="btn btn-dark">@Html.ActionLink("Альфорно", "Index", "Home", null, new {@class = "nav-link"})</li>
-                        <li class="btn btn-dark">@Html.ActionLink("Салати", "Index", "Home", null, new {@class = "nav-link"})</li>
-                        <li class="btn btn-dark">@Html.ActionLink("Перше", "Index", "Home", null, new {@class = "nav-link"})</li>
-                        <li class="btn btn-dark">@Html.ActionLink("Десерти", "Index", "Home", null, new {@class = "nav-link"})</li>
-                        <li class="btn btn-dark">@Html.ActionLink("Салати", "Index", "Home", null, new {@class = "nav-link"})</li>
+                        <li class="btn btn-dark">@Html.ActionLink("Піца", "Index", "Home", null, new { @class = "nav-link" })</li>
+                        <li class="btn btn-dark">@Html.ActionLink("Млинці", "Index", "Home", null, new { @class = "nav-link" })</li>
+                        <li class="btn btn-dark">@Html.ActionLink("Кальцоне", "Index", "Home", null, new { @class = "nav-link" })</li>
+                        <li class="btn btn-dark">@Html.ActionLink("Альфорно", "Index", "Home", null, new { @class = "nav-link" })</li>
+                        <li class="btn btn-dark">@Html.ActionLink("Салати", "Index", "Home", null, new { @class = "nav-link" })</li>
+                        <li class="btn btn-dark">@Html.ActionLink("Перше", "Index", "Home", null, new { @class = "nav-link" })</li>
+                        <li class="btn btn-dark">@Html.ActionLink("Десерти", "Index", "Home", null, new { @class = "nav-link" })</li>
+                        <li class="btn btn-dark">@Html.ActionLink("Салати", "Index", "Home", null, new { @class = "nav-link" })</li>
                     </ul>
                     @*//@Html.Partial("_LoginPartial")*@
                     @*@Html.Action("LoginRegistration","Home");*@
@@ -36,8 +49,6 @@
             </div>
         </div>
     </div>
-</div>
-
     <div class="container body-content">
         @RenderBody()
         <hr />

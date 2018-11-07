@@ -166,6 +166,7 @@
     <Content Include="images\layout\body.jpg" />
     <Content Include="images\layout\header.jpg" />
     <Content Include="images\layout\head_icons.png" />
+    <Content Include="images\layout\head_info_ua.png" />
     <Content Include="images\layout\logo_celentano.png" />
     <Content Include="images\layout\menu_nav.png" />
     <Content Include="images\layout\paper.jpg" />
