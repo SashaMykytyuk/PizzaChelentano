@@ -8,25 +8,38 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="container logo">
-        <div class="row">
-            <div class="col-1">
-                <img src="~/images/layout/logo_celentano.png" />
-            </div> 
-            <div class="col-1 offset-2 head_info">
-                <div>
-                    <img src="~/images/layout/head_info_ua.png" />
-                </div>
+<div class="container logo">
+    <div class="row  top_logo">
+
+    </div>
+    <div class="row">
+
+        <div class="col-1 img_logo">
+            <img src="~/images/layout/logo_celentano.png"/>
+        </div>
+        <div class="col-1 offset-2">
+            <div>
+                <img src="~/images/layout/head_info_ua.png"/>
             </div>
-            <div class="col-3 head_phone">
-                (0362) 45-00-47
+        </div>
+        <div class="col-3 head_phone">
+            (0362) 45-00-47
+        </div>
+        <div class="col-1 head_icon">
+            <img src="~/images/layout/head_icons.png"/>
+        </div>
+        <div class="col-1">
+            <div class="row text_log">
+                @Html.ActionLink("Login", "Index", "Home", null, new {@class = "btn-link"})
+                @Html.ActionLink("Registration", "Index", "Home", null, new {@class = "btn-link"})
             </div>
-            <div class="col-1 ">
-                <img src="~/images/layout/head_icons.png" />
+            <div class="row text_bascet">
+                @Html.ActionLink("Empty", "Index", "Home", null, new {@class = "btn-link"})
             </div>
         </div>
     </div>
-    <div class="container menu" >
+</div>
+    <div class="container menu">
         <div class="navbar navbar-expand-md navbar-dark bg-dark">
             <div class="container">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,6 +47,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
+                        <li class="btn btn-dark">@Html.ActionLink("Головна", "Index", "Home", null, new { @class = "nav-link" })</li>
                         <li class="btn btn-dark">@Html.ActionLink("Піца", "Index", "Home", null, new { @class = "nav-link" })</li>
                         <li class="btn btn-dark">@Html.ActionLink("Млинці", "Index", "Home", null, new { @class = "nav-link" })</li>
                         <li class="btn btn-dark">@Html.ActionLink("Кальцоне", "Index", "Home", null, new { @class = "nav-link" })</li>
@@ -49,11 +63,17 @@
             </div>
         </div>
     </div>
-    <div class="container body-content">
+    <div class="container content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        <footer class="futer">
+            <div class="container">
+                <div class="row" >
+                    <div class="col-1">
+                        <p>&copy; @DateTime.Now.Year</p>
+                    </div>
+                </div>
+            </div>
         </footer>
     </div>
 

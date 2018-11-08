@@ -1,22 +1,58 @@
 ﻿body {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 10px;
     background-image: url('../images/layout/body.jpg');
 }
-.logo {
+
+.top_logo {
+    background-image: url('../images/layout/header.jpg');
+    height: 40px;
 }
 
-.head_info {
-   
+.logo {
+    background-image: url('../images/layout/header.jpg');
+}
+.content {
+    background-image: url('../images/layout/header.jpg');
+    padding-bottom: 100px;
+}
+
+.img_logo {
+    
+}
+.futer {
+    background-image: url('../images/layout/footer.png');
+}
+.first_food {
+    background-color: white;
+}
+
+.img_r {
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+
+.head_icon {
+    padding-top: 10px;
+}
+
+.text_bascet {
+    padding-top: 20px;
+    color: white;
+}
+
+.text_log {
+    padding-top: 1px;
+    color: white;
 }
 .head_phone {
-    padding: 40px 0 0 0;
+    padding-top: 40px;
     font-size: 30px;
-    color: white;
 }
 .menu {
     padding-top: 10px;
     padding-bottom: 10px;
+    background-image: url('../images/layout/paper.jpg');
 }
 .head_log {
     padding-top: 10px;
