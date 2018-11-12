@@ -7,7 +7,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
+<body class="_body">
 <div class="container logo">
     <div class="row  top_logo">
 
@@ -56,6 +56,8 @@
                         <li class="btn btn-dark">@Html.ActionLink("Перше", "Index", "Home", null, new { @class = "nav-link" })</li>
                         <li class="btn btn-dark">@Html.ActionLink("Десерти", "Index", "Home", null, new { @class = "nav-link" })</li>
                         <li class="btn btn-dark">@Html.ActionLink("Салати", "Index", "Home", null, new { @class = "nav-link" })</li>
+                        <li class="btn btn-dark">@Html.ActionLink("Go to ADM", "Users", "Admin", new {Area = "Administration"}, new { @class = "nav-link" })</li>
+
                     </ul>
                     @*//@Html.Partial("_LoginPartial")*@
                     @*@Html.Action("LoginRegistration","Home");*@

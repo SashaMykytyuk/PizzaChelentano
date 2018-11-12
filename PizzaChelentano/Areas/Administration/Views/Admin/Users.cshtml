@@ -1,0 +1,33 @@
+﻿@using PizzaChelentano.Areas.Administration.Models
+@model IEnumerable<UserForAdmin>
+@{
+    Layout = "~/Areas/Administration/Views/Shared/_LayoutADM.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div class="container">
+        <table>
+            <tr>
+                <td>Email</td>
+                <td>Order</td>
+                <td>Role</td>
+            </tr>
+            @foreach (UserForAdmin user in Model)
+            {
+                <tr>
+                    <td>@Html.TextBox("Email", user.Email)</td>
+                    <td>@Html.DisplayText(user.Orders.ToString())</td>
+                    <td>@Html.DisplayText(user.Role)</td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>
