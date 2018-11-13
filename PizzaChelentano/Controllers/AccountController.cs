@@ -41,7 +41,8 @@ namespace PizzaChelentano.Controllers
                     UserName = model.Email, Email = model.Email,
                     Street = model.Street,
                     House = model.House,
-                    NumberApartment = model.NumberApartment
+                    NumberApartment = model.NumberApartment,
+                    TimeRegistration = DateTime.Now
                 };
                 IdentityResult result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)

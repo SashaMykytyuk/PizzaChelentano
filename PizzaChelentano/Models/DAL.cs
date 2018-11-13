@@ -8,6 +8,11 @@ namespace PizzaChelentano.Models
     public class DAL
     {
         private readonly PizzaContext context = SingletoneDbContext.GetInstance();
+
+        public void SaveChanges()
+        {
+            context.SaveChanges();
+        }
         public Dish CreateDish(Dish dish)
         {
 

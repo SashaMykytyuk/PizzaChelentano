@@ -17,6 +17,7 @@ namespace PizzaChelentano.Areas.Administration.Models
         public string NumberApartment { set; get; }
         public string Discount { set; get; }
         public string Role { set; get; }
+        public DateTime TimeRegistration { get; set; }
         public IEnumerable<Order> Orders { set; get; }
     }
 }

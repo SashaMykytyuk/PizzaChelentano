@@ -3,33 +3,28 @@
 <head>
     <title>Administration</title>
     @Styles.Render("~/Content/css")
-        @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-<div class="col-1 offset-5">
-    @Html.ActionLink("Go to Site", "Index", "Home", new { Area = ""}, null)
-</div>
-
-<div class="list-group col-2">
-    @Html.ActionLink("Users", "Users", "Admin", null, new { @class = "list-group-item" })
-    @Html.ActionLink("Dishes", "Users", "Admin", null, new { @class = "list-group-item" })
-    @Html.ActionLink("Users", "Users", "Admin", null, new { @class = "list-group-item" })
-    @Html.ActionLink("Users", "Users", "Admin", null, new { @class = "list-group-item" })
-
-</div>
-    <div class="col-10">
-        @RenderBody()
+    <div class="col-1 offset-5">
+        @Html.ActionLink("Go to Site", "Index", "Home", new { Area = "" }, null)
     </div>
-@*<div class="container">
-    <div class="navbar navbar-expand-md navbar-dark bg-dark">
-        <div class="container">
-            <div>
-                <ul class="navbar-nav mr-auto">
-                    <li class="btn btn-dark">@Html.ActionLink("Users", "Users", "Admin", null, new { @class = "nav-link" })</li>
-                </ul>
+    <div class="container">
+        <div class="navbar navbar-expand-md">
+            <div class="container">
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav mr-auto">
+                        @Html.ActionLink("Users", "Users", "Admin", null, new { @class = "list-group-item" })
+                        @Html.ActionLink("Dishes", "Dishes", "Admin", null, new { @class = "list-group-item" })
+                        @Html.ActionLink("Orders", "Orders", "Admin", null, new { @class = "list-group-item" })
+                        @Html.ActionLink("Banners", "Banners", "Admin", null, new { @class = "list-group-item" })
+                    </ul>
+                </div>
             </div>
         </div>
+        <div>
+            @RenderBody()
+        </div>
     </div>
-</div>*@
 </body>
 </html>

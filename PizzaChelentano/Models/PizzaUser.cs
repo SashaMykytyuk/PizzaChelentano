@@ -12,12 +12,14 @@ namespace PizzaChelentano.Models
         public string Street { set; get; }
         public string House { set; get; }
         public string NumberApartment { set; get; }
+        public string Role { set; get; }
+        public DateTime TimeRegistration { get; set; }
 
         public virtual ICollection<Order> Orders { set; get; }
 
         public PizzaUser()
         {
-
+            Role = "user";
         }
     }
 }

@@ -1,33 +1,71 @@
-﻿@using PizzaChelentano.Areas.Administration.Models
-@model IEnumerable<UserForAdmin>
+﻿@using System.Globalization
+@model IEnumerable<PizzaChelentano.Areas.Administration.Models.UserForAdmin>
+
 @{
+    ViewBag.Title = "Users";
     Layout = "~/Areas/Administration/Views/Shared/_LayoutADM.cshtml";
 }
 
-<!DOCTYPE html>
+<h2>Users</h2>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <div class="container">
-        <table>
-            <tr>
-                <td>Email</td>
-                <td>Order</td>
-                <td>Role</td>
-            </tr>
-            @foreach (UserForAdmin user in Model)
-            {
-                <tr>
-                    <td>@Html.TextBox("Email", user.Email)</td>
-                    <td>@Html.DisplayText(user.Orders.ToString())</td>
-                    <td>@Html.DisplayText(user.Role)</td>
-                </tr>
-            }
-        </table>
-    </div>
-</body>
-</html>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Street)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.House)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberApartment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Role)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeRegistration)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Street)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.House)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberApartment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Role)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TimeRegistration)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditUser", new { id=item.Id }) |
+            @Html.ActionLink("Details", "DetailsUser", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "DeleteUser", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
