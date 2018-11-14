@@ -128,38 +128,58 @@ namespace PizzaChelentano.Areas.Administration.Controllers
         [HttpGet]
         public ActionResult Dishes()
         {
-            return View();
+            DAL dal = new DAL();
+            return View(dal.GelAllDishes());
         }
+
+
+
+
+
         [HttpGet]
         public ActionResult CreateDishes()
         {
             return View();
         }
+
         [HttpPost]
-        public ActionResult CreateDishes(Dish dish)
+        public ActionResult CreateDishes(DishWithFile dishWithFile)
         {
-            //Extract Image File Name.
-            string fileName = Path.GetFileName(dish.ImageFileBase.FileName);
-
-            //Set the Image File Path.
-            string filePath = "~/images/Dishes/" + fileName;
-
-            //Save the Image File in Folder.
-            dish.ImageFileBase.SaveAs(Server.MapPath(filePath));
-
-            //Insert the Image File details in Table.
-            Dish new_dish = new Dish()
+            string path = String.Empty;
+            if (dishWithFile.File != null && dishWithFile.File.ContentLength > 0)
             {
-                Name = dish.Name,
-                Cost = dish.Cost,
-                Description = dish.Description,
-                Weight = dish.Weight,
-                ImageFileBase = dish.ImageFileBase
-            };
-            DAL dal = new DAL();
-            dal.CreateDish(new_dish);
-            return RedirectToAction("Dishes", "Admin");
+                try
+                {
+                    path = Path.Combine(Server.MapPath("~/images/dishes"), Path.GetFileName(dishWithFile.File.FileName));
+                    dishWithFile.File.SaveAs(path);
+                    Dish dish = new Dish
+                    {
+                        Name = dishWithFile.Name,
+                        Cost = dishWithFile.Cost,
+                        Description = dishWithFile.Description,
+                        TypeDish = dishWithFile.TypeDish,
+                        Weight = dishWithFile.Weight,
+                        PathImg = path,
+                        Orders = new List<Order>()
+                    };
+                    DAL dal = new DAL();
+                    dal.CreateDish(dish);
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.Message = "ERROR:" + ex.Message.ToString();
+                }
+            }
+            else
+            {
+                ViewBag.Message = "You have not specified a file.";
+            }
+            return RedirectToAction("CreateDishes","Admin");
+            
         }
+
+
+
 
 
 

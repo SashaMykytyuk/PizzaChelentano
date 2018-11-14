@@ -6,25 +6,27 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="col-1 offset-5">
-        @Html.ActionLink("Go to Site", "Index", "Home", new { Area = "" }, null)
-    </div>
-    <div class="container">
-        <div class="navbar navbar-expand-md">
-            <div class="container">
-                <div class="collapse navbar-collapse">
-                    <ul class="navbar-nav mr-auto">
-                        @Html.ActionLink("Users", "Users", "Admin", null, new { @class = "list-group-item" })
-                        @Html.ActionLink("Dishes", "Dishes", "Admin", null, new { @class = "list-group-item" })
-                        @Html.ActionLink("Orders", "Orders", "Admin", null, new { @class = "list-group-item" })
-                        @Html.ActionLink("Banners", "Banners", "Admin", null, new { @class = "list-group-item" })
-                    </ul>
-                </div>
+<div class="col-1 offset-5">
+    @Html.ActionLink("Go to Site", "Index", "Home", new { Area = "" }, null)
+</div>
+<div class="container">
+    <div class="navbar navbar-expand-md">
+        <div class="container">
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+                    @Html.ActionLink("Users", "Users", "Admin", null, new { @class = "list-group-item" })
+                    @Html.ActionLink("Dishes", "Dishes", "Admin", null, new { @class = "list-group-item" })
+                    @Html.ActionLink("Orders", "Orders", "Admin", null, new { @class = "list-group-item" })
+                    @Html.ActionLink("Banners", "Banners", "Admin", null, new { @class = "list-group-item" })
+                </ul>
             </div>
         </div>
-        <div>
-            @RenderBody()
-        </div>
     </div>
+    <div>
+        @RenderBody()
+    </div>
+</div>
 </body>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/AjaxU")
 </html>

@@ -18,6 +18,11 @@ namespace PizzaChelentano.Models
 
         }
 
+        public IEnumerable<Dish> GelAllDishes()
+        {
+            return context.Dishes.ToList();
+        }
+
         public Dish FindDishById(int Id) => context.Dishes.FirstOrDefault(x => x.Id == Id);
 
         
