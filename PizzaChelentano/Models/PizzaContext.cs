@@ -24,6 +24,5 @@ namespace PizzaChelentano.Models
         public virtual DbSet<Order> Orders { set; get; }
         public virtual DbSet<Dish> Dishes { set; get; }
 
-        public System.Data.Entity.DbSet<PizzaChelentano.Areas.Administration.Models.UserForAdmin> UserForAdmins { get; set; }
     }
 }

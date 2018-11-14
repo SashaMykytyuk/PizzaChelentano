@@ -8,7 +8,7 @@
 <h2>Dishes</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "CreateDishes", "Admin")
 </p>
 <table class="table">
     <tr>
@@ -22,10 +22,13 @@
             @Html.DisplayNameFor(model => model.Cost)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PathImg)
+            @Html.DisplayNameFor(model => model.Weight)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Weight)
+            @Html.DisplayNameFor(model => model.TypeDish)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PathImg)
         </th>
         <th></th>
     </tr>
@@ -42,15 +45,18 @@
             @Html.DisplayFor(modelItem => item.Cost)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.PathImg)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Weight)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.DisplayFor(modelItem => item.TypeDish)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PathImg)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditDish", new { id=item.Id }) |
+            @Html.ActionLink("Details", "DetailsDish", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "DeleteDish", new { id=item.Id })
         </td>
     </tr>
 }

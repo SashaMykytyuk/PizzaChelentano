@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -22,7 +23,7 @@ namespace PizzaChelentano.Areas.Administration.Controllers
                 return HttpContext.GetOwinContext().GetUserManager<PizzaUserManager>();
             }
         }
-        
+
         /// <summary>
         /// Work with Users 
         /// </summary>
@@ -118,8 +119,8 @@ namespace PizzaChelentano.Areas.Administration.Controllers
                 Orders = user.Orders
             };
         }
-        
-        
+
+
         /// <summary>
         /// Work with Dishes
         /// </summary>
@@ -127,8 +128,63 @@ namespace PizzaChelentano.Areas.Administration.Controllers
         [HttpGet]
         public ActionResult Dishes()
         {
+            DAL dal = new DAL();
+            return View(dal.GelAllDishes());
+        }
+
+
+
+
+
+        [HttpGet]
+        public ActionResult CreateDishes()
+        {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult CreateDishes(DishWithFile dishWithFile)
+        {
+            string path = String.Empty;
+            if (dishWithFile.File != null && dishWithFile.File.ContentLength > 0)
+            {
+                try
+                {
+                    path = Path.Combine(Server.MapPath("~/images/dishes"), Path.GetFileName(dishWithFile.File.FileName));
+                    dishWithFile.File.SaveAs(path);
+                    Dish dish = new Dish
+                    {
+                        Name = dishWithFile.Name,
+                        Cost = dishWithFile.Cost,
+                        Description = dishWithFile.Description,
+                        TypeDish = dishWithFile.TypeDish,
+                        Weight = dishWithFile.Weight,
+                        PathImg = path,
+                        Orders = new List<Order>()
+                    };
+                    DAL dal = new DAL();
+                    dal.CreateDish(dish);
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.Message = "ERROR:" + ex.Message.ToString();
+                }
+            }
+            else
+            {
+                ViewBag.Message = "You have not specified a file.";
+            }
+            return RedirectToAction("CreateDishes","Admin");
+            
+        }
+
+
+
+
+
+
+
+
         /// <summary>
         /// Work with Orders
         /// </summary>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -44,6 +45,7 @@ namespace PizzaChelentano.Controllers
                     NumberApartment = model.NumberApartment,
                     TimeRegistration = DateTime.Now
                 };
+                Debug.WriteLine("Email" + user.Email);
                 IdentityResult result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
