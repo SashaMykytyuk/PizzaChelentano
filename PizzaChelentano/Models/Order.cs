@@ -9,7 +9,7 @@ namespace PizzaChelentano.Models
     {
         public int Id { get; set; }
         public DateTime? DateStart { get; set; }
-        public bool Sate { set; get; }
+        public bool State { set; get; }
 
         public virtual ICollection<Dish> Dishes { set; get; }
         public virtual ICollection<PizzaUser> PizzaUsers { set; get; }

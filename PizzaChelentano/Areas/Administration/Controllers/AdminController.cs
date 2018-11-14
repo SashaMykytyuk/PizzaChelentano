@@ -74,7 +74,7 @@ namespace PizzaChelentano.Areas.Administration.Controllers
         public async Task<ActionResult> DeleteUser(UserForAdmin userForAdmin)
         {
             PizzaUser user = await UserManager.FindByIdAsync(userForAdmin.Id);
-            IdentityResult result = await UserManager.DeleteAsync(user);
+            await UserManager.DeleteAsync(user);
             return RedirectToAction("Users", "Admin");
         }
 
@@ -132,10 +132,6 @@ namespace PizzaChelentano.Areas.Administration.Controllers
             return View(dal.GelAllDishes());
         }
 
-
-
-
-
         [HttpGet]
         public ActionResult CreateDishes()
         {
@@ -159,7 +155,7 @@ namespace PizzaChelentano.Areas.Administration.Controllers
                         Description = dishWithFile.Description,
                         TypeDish = dishWithFile.TypeDish,
                         Weight = dishWithFile.Weight,
-                        PathImg = path,
+                        PathImg = "~/images/dishes/" + Path.GetFileName(dishWithFile.File.FileName),
                         Orders = new List<Order>()
                     };
                     DAL dal = new DAL();
@@ -174,8 +170,59 @@ namespace PizzaChelentano.Areas.Administration.Controllers
             {
                 ViewBag.Message = "You have not specified a file.";
             }
-            return RedirectToAction("CreateDishes","Admin");
-            
+            return RedirectToAction("CreateDishes", "Admin");
+        }
+
+        [HttpGet]
+        public ActionResult DetailsDish(string id)
+        {
+            DAL dal = new DAL();
+            return View(dal.FindDishById(Int32.Parse(id)));
+        }
+
+        [HttpGet]
+        public ActionResult DeleteDish(string id)
+        {
+            DAL dal = new DAL();
+            return View(dal.FindDishById(Int32.Parse(id)));
+        }
+
+        [HttpPost]
+        public ActionResult DeleteDish(Dish _dish)
+        {
+            DAL dal = new DAL();
+            dal.DeleteDish(_dish);
+            if (System.IO.File.Exists(_dish.PathImg))
+                System.IO.File.Delete(_dish.PathImg);
+            return RedirectToAction("Dishes", "Admin");
+        }
+
+
+
+
+
+
+
+        [HttpGet]
+        public ActionResult EditDish(string id)
+        {
+            DAL dal = new DAL();
+            return View(dal.FindDishById(Int32.Parse(id)));
+        }
+
+
+
+
+
+
+
+
+        [HttpPost]
+        public ActionResult EditDish(Dish model)
+        {
+            DAL dal = new DAL();
+            dal.EditDish(model);
+            return RedirectToAction("Dishes", "Admin");
         }
 
 

@@ -274,6 +274,9 @@
     <Content Include="obj\Debug\Tsc.out" />
     <Content Include="Areas\Administration\Views\Admin\CreateDishes.cshtml" />
     <Content Include="Areas\Administration\Views\Admin\Dishes.cshtml" />
+    <Content Include="Areas\Administration\Views\Admin\EditDish.cshtml" />
+    <Content Include="Areas\Administration\Views\Admin\DetailsDish.cshtml" />
+    <Content Include="Areas\Administration\Views\Admin\DeleteDish.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
