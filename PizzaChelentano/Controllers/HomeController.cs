@@ -18,8 +18,6 @@ namespace PizzaChelentano.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = dal.FindDishByName("dfdv") == null ? "not found" : "Ok";
-
             return View();
         }
 

@@ -9,20 +9,18 @@ namespace PizzaChelentano.Models
     {
         private readonly PizzaContext context = SingletoneDbContext.GetInstance();
 
-        public void SaveChanges()
-        {
-            context.SaveChanges();
-        }
         public Dish CreateDish(Dish dish)
         {
 
             context.Dishes.Add(dish);
             context.SaveChanges();
-            return FindDishByName(dish.Name);
+            return FindDishById(dish.Id);
 
         }
 
-        public Dish FindDishByName(string name) => context.Dishes.FirstOrDefault(x => x.Name == name);
+        public Dish FindDishById(int Id) => context.Dishes.FirstOrDefault(x => x.Id == Id);
+
+        
     }
 
 }

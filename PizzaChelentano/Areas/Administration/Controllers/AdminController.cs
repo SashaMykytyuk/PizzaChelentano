@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -22,7 +23,7 @@ namespace PizzaChelentano.Areas.Administration.Controllers
                 return HttpContext.GetOwinContext().GetUserManager<PizzaUserManager>();
             }
         }
-        
+
         /// <summary>
         /// Work with Users 
         /// </summary>
@@ -118,8 +119,8 @@ namespace PizzaChelentano.Areas.Administration.Controllers
                 Orders = user.Orders
             };
         }
-        
-        
+
+
         /// <summary>
         /// Work with Dishes
         /// </summary>
@@ -129,6 +130,41 @@ namespace PizzaChelentano.Areas.Administration.Controllers
         {
             return View();
         }
+        [HttpGet]
+        public ActionResult CreateDishes()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult CreateDishes(Dish dish)
+        {
+            //Extract Image File Name.
+            string fileName = Path.GetFileName(dish.ImageFileBase.FileName);
+
+            //Set the Image File Path.
+            string filePath = "~/images/Dishes/" + fileName;
+
+            //Save the Image File in Folder.
+            dish.ImageFileBase.SaveAs(Server.MapPath(filePath));
+
+            //Insert the Image File details in Table.
+            Dish new_dish = new Dish()
+            {
+                Name = dish.Name,
+                Cost = dish.Cost,
+                Description = dish.Description,
+                Weight = dish.Weight,
+                ImageFileBase = dish.ImageFileBase
+            };
+            DAL dal = new DAL();
+            dal.CreateDish(new_dish);
+            return RedirectToAction("Dishes", "Admin");
+        }
+
+
+
+
+
         /// <summary>
         /// Work with Orders
         /// </summary>

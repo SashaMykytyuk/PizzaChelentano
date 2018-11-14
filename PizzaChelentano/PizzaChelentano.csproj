@@ -261,6 +261,7 @@
     <Content Include="Areas\Administration\Views\Admin\EditUser.cshtml" />
     <Content Include="Areas\Administration\Views\Admin\DetailsUser.cshtml" />
     <Content Include="Areas\Administration\Views\Admin\DeleteUser.cshtml" />
+    <Content Include="Areas\Administration\Views\Admin\CreateDishes.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
