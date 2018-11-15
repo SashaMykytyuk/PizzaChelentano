@@ -16,16 +16,26 @@ namespace PizzaChelentano.Controllers
             return View();
         }
 
-        public ActionResult About()
+        [HttpGet]
+        public ActionResult Pizza()
         {
-            return View();
+            List<Dish> list = dal.GelAllDishes().ToList().Where(x=>x.TypeDish == "pizza").ToList();
+            return View(list);
+        }
+        [HttpGet]
+        public ActionResult Calcium()
+        {
+            List<Dish> list = dal.GelAllDishes().ToList().Where(x => x.TypeDish == "calcium").ToList();
+            return View(list);
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
 
-            return View();
+        [HttpGet]
+        public ActionResult Pancake()
+        {
+            List<Dish> list = dal.GelAllDishes().ToList().Where(x => x.TypeDish == "pancake").ToList();
+            return View(list);
         }
+
     }
 }
