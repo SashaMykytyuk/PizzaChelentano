@@ -8,37 +8,37 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body class="_body">
-<div class="container logo">
-    <div class="row  top_logo">
+    <div class="container logo">
+        @Html.Action("IsAdmin", "Account")
+        <div class="row  top_logo">
 
-    </div>
-    <div class="row">
+        </div>
+        <div class="row">
 
-        <div class="col-1 img_logo">
-            <img src="~/images/layout/logo_celentano.png"/>
-        </div>
-        <div class="col-1 offset-2">
-            <div>
-                <img src="~/images/layout/head_info_ua.png"/>
+            <div class="col-1 img_logo">
+                <img src="~/images/layout/logo_celentano.png" />
             </div>
-        </div>
-        <div class="col-3 head_phone">
-            (0362) 45-00-47
-        </div>
-        <div class="col-1 head_icon">
-            <img src="~/images/layout/head_icons.png"/>
-        </div>
-        <div class="col-1">
-            <div class="row text_log">
-                @Html.ActionLink("Login", "Index", "Home", null, new {@class = "btn-link"})
-                @Html.ActionLink("Registration", "Register", "Account", null, new {@class = "btn-link"})
+            <div class="col-1 offset-2">
+                <div>
+                    <img src="~/images/layout/head_info_ua.png" />
+                </div>
             </div>
-            <div class="row text_bascet">
-                @Html.ActionLink("Empty", "Index", "Home", null, new {@class = "btn-link"})
+            <div class="col-3 head_phone">
+                (0362) 45-00-47
+            </div>
+            <div class="col-1 head_icon">
+                <img src="~/images/layout/head_icons.png" />
+            </div>
+            <div class="col-2">
+                <div class="row text_log">
+                    @Html.Partial("_LoginPartial")
+                </div>
+                <div class="row text_bascet">
+                    @Html.ActionLink("Empty", "Index", "Home", null, new { @class = "btn-link" });
+                </div>
             </div>
         </div>
     </div>
-</div>
     <div class="container main_menu">
         <div class="navbar navbar-expand-md navbar-dark bg-dark">
             <div class="container">
@@ -56,11 +56,8 @@
                         <li class="btn btn-dark">@Html.ActionLink("Перше", "Index", "Home", null, new { @class = "nav-link" })</li>
                         <li class="btn btn-dark">@Html.ActionLink("Десерти", "Index", "Home", null, new { @class = "nav-link" })</li>
                         <li class="btn btn-dark">@Html.ActionLink("Салати", "Index", "Home", null, new { @class = "nav-link" })</li>
-                        <li class="btn btn-dark">@Html.ActionLink("Go to ADM", "Users", "Admin", new {Area = "Administration"}, new { @class = "nav-link" })</li>
 
                     </ul>
-                    @*//@Html.Partial("_LoginPartial")*@
-                    @*@Html.Action("LoginRegistration","Home");*@
                 </div>
             </div>
         </div>

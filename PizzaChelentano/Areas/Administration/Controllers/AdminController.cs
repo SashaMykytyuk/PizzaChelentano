@@ -33,6 +33,8 @@ namespace PizzaChelentano.Areas.Administration.Controllers
         {
             List<UserForAdmin> userForAdmin = new List<UserForAdmin>();
             var list = UserManager.Users.ToList();
+            if (list.Count == 0)
+                return View(userForAdmin);
             //Debug.WriteLine("User count = " + list.Count);
             foreach (PizzaUser pizzaUser in list)
             {

@@ -32,6 +32,25 @@ namespace PizzaChelentano.Controllers
             return View();
         }
 
+        public ActionResult IsAdmin()
+        {
+            
+            if (User.Identity.IsAuthenticated)
+            {
+                var user = UserManager.FindByName(User.Identity.Name);
+
+                if (user.Role == "admin")
+                {
+                    return PartialView("_AdminPartial");
+                }
+            }
+            return Content("");
+        }
+
+
+
+
+
         [HttpPost]
         public async Task<ActionResult> Register(RegisterModel model)
         {
@@ -61,8 +80,6 @@ namespace PizzaChelentano.Controllers
             }
             return View(model);
         }
-
-
 
         private IAuthenticationManager AuthenticationManager
         {
@@ -110,10 +127,12 @@ namespace PizzaChelentano.Controllers
             ViewBag.returnUrl = returnUrl;
             return View(model);
         }
-        public ActionResult Logout()
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult LogOff()
         {
-            AuthenticationManager.SignOut();
-            return RedirectToAction("Login");
+            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            return RedirectToAction("Index", "Home");
         }
     }
 }
